@@ -18,7 +18,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#curl https://raw.githubusercontent.com/intlabs/cannyos-base-archlinux/master/CannyOS/CannyOS.splash
+curl https://raw.githubusercontent.com/intlabs/cannyos-base-archlinux/master/CannyOS/CannyOS.splash
 #     *****************************************************
 #     *                                                   *
 #     *        _____                    ____  ____        *
@@ -35,20 +35,18 @@ echo "*                                                   *"
 echo "*****************************************************"
 echo ""
 
-if [ "$1" = 'ubuntu' ]; then
+
+# Create a user account
+if [ "$DISTO" = 'ubuntu' ]; then
 	adduser --disabled-password --gecos "" user
-	echo 'user:acoman' |chpasswd
-	exit
-elif [ "$1" = 'arch' ]; then
+elif [ "$DISTRO" = 'arch' ]; then
 	useradd -m -s /bin/bash user
-	echo 'user:acoman' | chpasswd
-	exit
-elif [ "$1" = 'fedora' ]; then
+elif [ "$DISTRO" = 'fedora' ]; then
 	adduser -c "" user
-	echo 'user:acoman' |chpasswd
-	exit
 else
-	printf "You need to specify a distro!"
-	wait 30
+	printf "You need to specify a distro! - Adding user failed"
 	exit
 fi
+
+# Set up user security
+echo 'user:acoman' |chpasswd
