@@ -39,11 +39,11 @@ echo ""
 # Install Packages for system
 if [ "$DISTRO" = 'ubuntu' ]; then
 	sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-	apt-get update && \
-	apt-get -y upgrade && \
-	apt-get install -y build-essential && \
-	apt-get install -y software-properties-common && \
-	apt-get install -y byobu curl git htop man unzip nano wget sed
+	apt-get update -yqq && \
+	apt-get upgrade -yqq && \
+	apt-get install -yqq build-essential && \
+	apt-get install -yqq software-properties-common && \
+	apt-get install -yqq byobu curl git htop man unzip nano wget sed
 
 elif [ "$DISTRO" = 'arch' ]; then
 	sed 's/^CheckSpace/#CheckSpace/g' -i /etc/pacman.conf && \
