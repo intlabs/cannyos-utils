@@ -37,7 +37,7 @@ echo ""
 
 
 # Create a user account
-if [ "$DISTO" = 'ubuntu' ]; then
+if [ "$DISTRO" = 'ubuntu' ]; then
 	adduser --disabled-password --gecos "" user
 elif [ "$DISTRO" = 'arch' ]; then
 	useradd -m -s /bin/bash user
