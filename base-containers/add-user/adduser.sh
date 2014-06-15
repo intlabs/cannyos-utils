@@ -39,10 +39,12 @@ echo ""
 # Create a user account
 if [ "$DISTRO" = 'ubuntu' ]; then
 	adduser --disabled-password --gecos "" user
-elif [ "$DISTRO" = 'arch' ]; then
+elif [ "$DISTRO" = 'archlinux' ]; then
 	useradd -m -s /bin/bash user
 elif [ "$DISTRO" = 'fedora' ]; then
 	adduser -c "" user
+elif [ "$DISTRO" = 'opensuse' ]; then
+	useradd -c "" user
 else
 	printf "You need to specify a distro! - Adding user failed"
 	exit

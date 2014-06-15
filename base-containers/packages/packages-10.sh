@@ -45,7 +45,7 @@ if [ "$DISTRO" = 'ubuntu' ]; then
 	apt-get install -yqq software-properties-common && \
 	apt-get install -yqq byobu curl git htop man unzip nano wget sed
 
-elif [ "$DISTRO" = 'arch' ]; then
+elif [ "$DISTRO" = 'archlinux' ]; then
 	sed 's/^CheckSpace/#CheckSpace/g' -i /etc/pacman.conf && \
 	pacman -Syyu --noconfirm && \
 	sed 's/#CheckSpace/CheckSpace/g' -i /etc/pacman.conf
@@ -56,6 +56,13 @@ elif [ "$DISTRO" = 'fedora' ]; then
 	yum install -y make automake gcc gcc-c++ kernel-devel && \
 	yum install -y ca-certificates glib* python3 && \
 	yum install -y byobu curl git htop man unzip nano wget sed
+
+elif [ "$DISTRO" = 'opensuse' ]; then
+	zypper refresh && \
+	zypper update -y && \
+	zypper install -y make automake gcc gcc-c++ kernel-devel && \
+	zypper install -y ca-certificates glib* python3 && \
+	zypper install -y curl git htop man unzip nano wget sed
 	
 else
 	printf "You need to specify a distro - Installing base OS packages failed"
