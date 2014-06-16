@@ -47,8 +47,7 @@ if [ "$DISTRO" = 'ubuntu' ]; then
 
 elif [ "$DISTRO" = 'archlinux' ]; then
 	sed 's/^CheckSpace/#CheckSpace/g' -i /etc/pacman.conf && \
-	pacman -Syyu --noconfirm && \
-	sed 's/#CheckSpace/CheckSpace/g' -i /etc/pacman.conf
+	pacman -Syyu --noconfirm
 
 elif [ "$DISTRO" = 'fedora' ]; then
 	yum update -y && \
