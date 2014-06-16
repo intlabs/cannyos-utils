@@ -53,14 +53,14 @@ elif [ "$DISTRO" = 'fedora' ]; then
 	yum update -y && \
 	yum upgrade -y && \
 	yum install -y make automake gcc gcc-c++ kernel-devel && \
-	yum install -y ca-certificates glib* python3 && \
+	yum install -y ca-certificates python3 && \
 	yum install -y byobu curl git htop man unzip nano wget sed
 
 elif [ "$DISTRO" = 'opensuse' ]; then
 	zypper refresh && \
 	zypper update -y && \
 	zypper install -y make automake gcc gcc-c++ kernel-devel && \
-	zypper install -y ca-certificates glib* python3 && \
+	zypper install -y ca-certificates python3 && \
 	zypper install -y curl git htop man unzip nano wget sed
 	
 else
